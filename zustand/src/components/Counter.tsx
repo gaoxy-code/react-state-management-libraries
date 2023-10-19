@@ -1,5 +1,5 @@
 import React from "react";
-import { useStore } from "@/hooks/store";
+import { useStore, reset } from "@/hooks/store";
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 
@@ -7,24 +7,24 @@ const Counter = () => {
   const count = useStore((state) => state.count);
   const increase = useStore((state) => state.increase);
   const decrease = useStore((state) => state.decrease);
-  const reset = useStore((state) => state.reset);
 
   return (
     <div
       style={{
-        width: "100%",
-        height: "100%",
+        width: "100vw",
+        height: "100vh",
         display: "flex",
         alignItems: "center",
+        textAlign: "center",
       }}
     >
       <Card>
         <div
           style={{
+            width: 400,
             display: "flex",
             flexDirection: "column",
             gap: 8,
-            alignItems: "center",
           }}
         >
           <div
@@ -35,7 +35,7 @@ const Counter = () => {
           >
             {count}
           </div>
-          <div style={{ display: "flex", gap: 8 }}>
+          <div style={{ width: "100%", display: "flex", gap: 8 }}>
             <Button text="+" onClick={increase} />
             <Button text="-" onClick={decrease} />
           </div>

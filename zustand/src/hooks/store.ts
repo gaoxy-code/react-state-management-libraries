@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create, type StateCreator } from "zustand";
 
 type State = {
   count: number;
@@ -7,16 +7,22 @@ type State = {
 type Action = {
   increase: () => void;
   decrease: () => void;
-  reset: () => void;
 };
 
 const initialState: State = {
   count: 0,
 };
 
-export const useStore = create<State & Action>()((set) => ({
+const useSlice: StateCreator<State & Action> = (set, get) => ({
   ...initialState,
   increase: () => set((state) => ({ count: state.count + 1 })),
-  decrease: () => set((state) => ({ count: state.count - 1 })),
-  reset: () => set(initialState),
-}));
+  decrease: () => {
+    const count = get().count;
+    set(() => ({ count: count - 1 }));
+  },
+});
+
+export const useStore = create(useSlice);
+
+// ストアの外で状態の更新を定義することも可能
+export const reset = () => useStore.setState(initialState);

@@ -9,7 +9,7 @@ const Button = ({ text, onClick }: ButtonProps) => {
   return (
     <button
       style={{
-        width: 100,
+        width: "100%",
         height: 50,
         fontSize: 24,
         backgroundColor: "#7B9D7F",
