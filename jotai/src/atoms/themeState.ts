@@ -1,6 +1,13 @@
+import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 
-export const theme = atomWithStorage("dark", false);
+const themeAtom = atomWithStorage("dark", false);
+
+export const themeValueAtom = atom((get) => get(themeAtom));
+
+export const changeThemeAtom = atom(null, (get, set) =>
+  set(themeAtom, !get(themeAtom))
+);
 
 export const getThemeColor = (isDark: boolean) => {
   return isDark

@@ -1,14 +1,12 @@
 import React, { ReactElement } from "react";
-import { atom, useAtom } from "jotai";
-import { getThemeColor, theme } from "@/hooks/theme";
+import { useAtom } from "jotai";
+import { getThemeColor, themeValueAtom } from "@/atoms/themeState";
 
 type CardProps = {
   children: ReactElement | ReactElement[];
 };
 const Card = ({ children }: CardProps) => {
-  // NOTE: readonly atom
-  const readOnlyAtom = atom((get) => get(theme));
-  const [appTheme] = useAtom(readOnlyAtom);
+  const [appTheme] = useAtom(themeValueAtom);
 
   return (
     <div

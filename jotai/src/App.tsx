@@ -1,13 +1,20 @@
 import React from "react";
-import Counter from "@/components/Counter";
-import { useAtom } from "jotai";
-import { getThemeColor, getThemeText, theme } from "@/hooks/theme";
+import Counter from "@/features/Counter";
+import { Provider, useAtom } from "jotai";
+import {
+  getThemeColor,
+  getThemeText,
+  themeValueAtom,
+  changeThemeAtom,
+} from "@/atoms/themeState";
 import Button from "@/components/Button";
 
 function App() {
-  const [appTheme, setAppTheme] = useAtom(theme);
+  const [appTheme] = useAtom(themeValueAtom);
+  const [, changeTheme] = useAtom(changeThemeAtom);
+
   const handleClick = () => {
-    setAppTheme(!appTheme);
+    changeTheme();
   };
 
   return (
@@ -23,7 +30,12 @@ function App() {
         ...getThemeColor(appTheme),
       }}
     >
-      <Counter />
+      <Provider>
+        <Counter />
+      </Provider>
+      <Provider>
+        <Counter />
+      </Provider>
       <Button onClick={handleClick} style={{ ...getThemeColor(!appTheme) }}>
         {getThemeText(appTheme)}
       </Button>
