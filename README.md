@@ -2,7 +2,7 @@
 
 - [Zustand(ツーシュタント)](./zustand/README.md)
 - [Jotai](./jotai/README.md)
-- Recoil　
+- [Recoil](./recoil/README.md)　
 - Valtio
 - Rematch
 - Hookstate
