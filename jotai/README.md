@@ -22,3 +22,9 @@ const createCountIncAtoms = (initialValue) => {
   return [valueAtom, incAtom]
 }
 ```
+
+### useAtomValue / useSetAtom
+- useAtomValue  
+  読み取り専用のatomにアクセスできる。
+- useSetAtom  
+  atomの値を読み込まずに更新する必要がある場合に使用する。

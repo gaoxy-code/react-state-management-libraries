@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "@/components/Card";
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import Button from "@/components/Button";
 import { getThemeColor, themeValueAtom } from "@/atoms/themeState";
 import { createCountAtoms } from "./atom";
@@ -23,9 +23,9 @@ const Counter = () => {
   const [, incFirst] = useAtom(firstIncAtom);
   const [, decFirst] = useAtom(firstDecAtom);
 
-  const [secondNum] = useAtom(secondAtom);
-  const [, incSecond] = useAtom(secondIncAtom);
-  const [, decSecond] = useAtom(secondDecAtom);
+  const secondNum = useAtomValue(secondAtom);
+  const incSecond = useSetAtom(secondIncAtom);
+  const decSecond = useSetAtom(secondDecAtom);
 
   return (
     <div
