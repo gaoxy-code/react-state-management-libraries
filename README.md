@@ -1,8 +1,8 @@
 # React State Management Libraries
 
-- [Zustand(ツーシュタント)](./zustand/README.md)
+- [Zustand](./zustand/README.md)
 - [Jotai](./jotai/README.md)
-- Recoil　
+- [Recoil](./recoil/README.md)　
 - Valtio
 - Rematch
 - Hookstate
