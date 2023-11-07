@@ -1,6 +1,6 @@
 # React State Management Libraries
 
-- [Zustand(ツーシュタント)](./zustand/README.md)
+- [Zustand](./zustand/README.md)
 - [Jotai](./jotai/README.md)
 - [Recoil](./recoil/README.md)　
 - Valtio
