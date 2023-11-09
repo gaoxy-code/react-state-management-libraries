@@ -8,6 +8,14 @@ const Todos = () => {
     ({ status }) => status === snap.filter || snap.filter === "all"
   );
 
+  const handleClickList = (target: number) => {
+    store.todos.forEach((todo) => {
+      if (todo.id === target) {
+        todo.status = todo.status === "pending" ? "completed" : "pending";
+      }
+    });
+  };
+
   const handleClickRemove = (target: number) => {
     store.todos = todos.filter((todo) => todo.id !== target);
   };
@@ -41,9 +49,13 @@ const Todos = () => {
               padding: "0 8px",
               borderRadius: 8,
             }}
+            onClick={() => handleClickList(todo.id)}
           >
             <span
-              style={{ color: todo.status === "completed" ? "red" : "#333333" }}
+              style={{
+                textDecoration:
+                  todo.status === "completed" ? "line-through" : "none",
+              }}
             >
               {todo.description}
             </span>
