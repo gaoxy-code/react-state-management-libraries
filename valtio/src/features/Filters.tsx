@@ -1,14 +1,14 @@
-import { Filter, store } from "@/store/todo";
+import { Filter, state } from "@/store/todo";
 import React from "react";
 import { useSnapshot } from "valtio";
 
 const FILTER_OPTION: Filter[] = ["all", "pending", "completed"];
 
 const Filters = () => {
-  const snap = useSnapshot(store);
+  const snap = useSnapshot(state);
 
   const handleSetFilter = (newValue: Filter) => {
-    store.filter = newValue;
+    state.filter = newValue;
   };
 
   return (

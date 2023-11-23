@@ -1,15 +1,16 @@
-import { store } from "@/store/todo";
+import { state } from "@/store/todo";
 import React from "react";
 import { useSnapshot } from "valtio";
 
 const Todos = () => {
-  const snap = useSnapshot(store);
+  const snap = useSnapshot(state);
   const todos = snap.todos.filter(
     ({ status }) => status === snap.filter || snap.filter === "all"
   );
 
+  // actions
   const handleClickList = (target: number) => {
-    store.todos.forEach((todo) => {
+    state.todos.forEach((todo) => {
       if (todo.id === target) {
         todo.status = todo.status === "pending" ? "completed" : "pending";
       }
@@ -17,7 +18,7 @@ const Todos = () => {
   };
 
   const handleClickRemove = (target: number) => {
-    store.todos = todos.filter((todo) => todo.id !== target);
+    state.todos = todos.filter((todo) => todo.id !== target);
   };
 
   return (

@@ -1,13 +1,13 @@
 import Button from "@/components/Button";
 import React, { useRef } from "react";
-import { store } from "@/store/todo";
+import { state } from "@/store/todo";
 
 const CreateTodo = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const handleClick = () => {
     const description = inputRef.current?.value;
     if (description) {
-      store.todos.push({
+      state.todos.push({
         description: description,
         status: "pending",
         id: Math.floor(Math.random() * 16),

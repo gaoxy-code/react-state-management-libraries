@@ -17,4 +17,20 @@ authState.user.name = 'Hanako'
 ```
 
 ### Usage of useSnapshot
-Snapshotsは読み取り専用
+Reactコンポーネント側でstateの値を参照したい場合はuseSnapshotで生成されたもののみ使う。  
+useSnapshotで生成されるものはreadonlyなstateになる。
+そうすることでコンポーネント側ではimmutableなstateのみを取り扱うことができる
+
+
+### Subscribe
+```ts
+import { proxy, subscribe } from 'valtio'
+
+const state = proxy({ count: 0 });
+
+// コールバックを登録する
+subscribe(state, () => console.log("changed"));
+
+// changedが表示される
+state.count++;
+```
