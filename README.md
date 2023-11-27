@@ -3,7 +3,7 @@
 - [Zustand](./zustand/README.md)
 - [Jotai](./jotai/README.md)
 - [Recoil](./recoil/README.md)　
-- Valtio
+- [Valtio](./valtio/README.md)
 - Rematch
 - Hookstate
 - MobX
